@@ -1,0 +1,13 @@
+.gameboard {
+  width: 1080px
+  marigin: 0 auto;
+}
+
+.card {
+  position: inherit;
+  float: left;
+  margin: 10px;
+  height: 200px;
+  width: 150px;
+  background: lightblue;
+}
