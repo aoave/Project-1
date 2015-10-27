@@ -1,13 +1,38 @@
+@font-face {
+  font-family: transformers;
+  src: url(Transformers.ttf);
+}
+
 .gameboard {
-  width: 1080px
+  width: 100%
   marigin: 0 auto;
 }
 
 .card {
-  position: inherit;
+  position: static;
   float: left;
   margin: 10px;
   height: 200px;
-  width: 150px;
-  background: lightblue;
+  width: 13%;
+  background-image: url('http://i112.photobucket.com/albums/n188/matthewryan1985/Autobots-Decepticons.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+p {background-image:
+
+}
+
+h1 {
+  text-align: center;
+  font-family: transformers;
+  color: red;
+}
+html {
+  background-image: url('http://i.ytimg.com/vi/5FFosezaW-Q/maxresdefault.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.card img {
+  width: 100%;
 }

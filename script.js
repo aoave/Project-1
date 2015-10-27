@@ -1,26 +1,75 @@
 $(document).ready(function() {
-  var app = {
-    cards: [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6],
+  var game = {
+    cards: ["http://img3.wikia.nocookie.net/__cb20140705214625/worldsgreatestheroes/images/8/84/Optimus-Prime.jpg",
+            "http://img3.wikia.nocookie.net/__cb20140705214625/worldsgreatestheroes/images/8/84/Optimus-Prime.jpg",
+            "https://upload.wikimedia.org/wikipedia/en/7/7f/Megatron.jpg",
+            "https://upload.wikimedia.org/wikipedia/en/7/7f/Megatron.jpg",
+            "https://upload.wikimedia.org/wikipedia/en/8/85/Starscream.jpg",
+            "https://upload.wikimedia.org/wikipedia/en/8/85/Starscream.jpg",
+            "http://img1.wikia.nocookie.net/__cb20060816201257/transformers/images/2/25/Ironhideg1guido.jpg",
+            "http://img1.wikia.nocookie.net/__cb20060816201257/transformers/images/2/25/Ironhideg1guido.jpg",
+            "http://orig06.deviantart.net/0445/f/2007/246/b/f/i_am_soundwave____by_fargnay.jpg",
+            "http://orig06.deviantart.net/0445/f/2007/246/b/f/i_am_soundwave____by_fargnay.jpg",
+            "http://orig02.deviantart.net/1580/f/2009/231/1/d/grimlock_colored_by_stridersyd.jpg",
+            "http://orig02.deviantart.net/1580/f/2009/231/1/d/grimlock_colored_by_stridersyd.jpg",
+          ],
     init: function() {
-      app.shuffle();
+      game.shuffle();
     },
+    // shuffle cards using for loop, by using random number, store current index #
     shuffle: function() {
-      var random = 0
-      var temp = 0
-      for (i = 1; i < app.cards.length; i++) {
+      var random = 0;
+      var temp = 0;
+      for (i = 1; i < game.cards.length; i++) {
         random = Math.round(Math.random() * i);
-        temp = app.cards[i]
-        app.cards[i] = random;
-        app.cards[random] = temp;
+        temp = game.cards[i];
+        game.cards[i] = game.cards[random];
+        game.cards[random] = temp;
       }
-      app.assignCards();
-      console.log(app.cards);
-    }
+      game.assignCards();
+      console.log(game.cards);
+    },
+    //assign cards a number using data dash
     assignCards: function() {
       $('.card').each(function(index) {
-        $(this).attr('data-card-value', app.cards[index]);
+        $(this).attr('data-card-value', game.cards[index]);
       });
-    };
+      game.clickHandlers();
+    },
+    clickHandlers: function() {
+      $('.card').on('click', function() {
+        $(this).html('<img src =' + $(this).data('cardValue') + '></img>').addClass('selected');
+        game.checkMatch();
+      });
+    },
+    //How to check if cards match using data tag
+    checkMatch: function() {
+      if ($('.selected').length === 2) {
+        if ($('.selected').first().data('cardValue') == $('.selected').last().data('cardValue')) {
+          $('.selected').each(function() {
+            $(this).animate({
+              opacity: 0
+            }).removeClass('unmatched');
+          });
+          // remove selected cards if they do not match
+          $('.selected').each(function() {
+            $(this).removeClass('selected');
+          });
+          game.checkWin();
+        } else {
+          setTimeout(function() {
+            $('.selected').each(function() {
+              $(this).html('').removeClass('selected');
+            });
+          }, 500);
+        }
+      }
+    },
+    checkWin: function() {
+      if ($('.unmatched').length === 0) {
+        $('.container').html('<h1>You Win!</h1>');
+      }
+    }
   };
-  app.init();
+  game.init();
 });
