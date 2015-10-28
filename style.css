@@ -36,3 +36,13 @@ html {
 .card img {
   width: 100%;
 }
+
+#playButton {
+  bottom: auto;
+  width: 25%;
+  font-family: transformers;
+  background-color: red;
+  color: blue;
+  font-size: 50px;
+
+}

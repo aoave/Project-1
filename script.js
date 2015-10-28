@@ -47,7 +47,9 @@ $(document).ready(function() {
       if ($('.selected').length === 2) {
         if ($('.selected').first().data('cardValue') == $('.selected').last().data('cardValue')) {
           $('.selected').each(function() {
-            $(this).animate({
+            $(this).each(function(){
+              playSound('http://www.hasbro.com/common/audio/transformers/tranforb.wav')
+            }).animate({
               opacity: 0
             }).removeClass('unmatched');
           });
@@ -73,3 +75,7 @@ $(document).ready(function() {
   };
   game.init();
 });
+
+function playSound( url ) {
+  $(".selected").html("<embed src='"+url+"' hidden=true autostart=true loop=false>");
+}
