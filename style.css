@@ -2,12 +2,9 @@
   font-family: transformers;
   src: url(Transformers.ttf);
 }
-
 .gameboard {
-  width: 100%
-  marigin: 0 auto;
+  width: 100% marigin: 0 auto;
 }
-
 .card {
   position: static;
   float: left;
@@ -18,11 +15,9 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
-
-p {background-image:
-
+p {
+  background-image:
 }
-
 h1 {
   text-align: center;
   font-family: transformers;
@@ -36,13 +31,22 @@ html {
 .card img {
   width: 100%;
 }
-
 #playButton {
   bottom: auto;
-  width: 25%;
+  width: 20%;
   font-family: transformers;
   background-color: red;
   color: blue;
   font-size: 50px;
+  top: -50px;
+}
+.timer {
 
+  font-family: transformers;
+  background-color: black;;
+  color: purple;
+  font-size: 20px;
+  position: absolute;
+  left: 270px;
+  bottom: 10px;
 }

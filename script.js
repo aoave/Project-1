@@ -1,18 +1,18 @@
 $(document).ready(function() {
   var game = {
     cards: ["http://img3.wikia.nocookie.net/__cb20140705214625/worldsgreatestheroes/images/8/84/Optimus-Prime.jpg",
-            "http://img3.wikia.nocookie.net/__cb20140705214625/worldsgreatestheroes/images/8/84/Optimus-Prime.jpg",
-            "https://upload.wikimedia.org/wikipedia/en/7/7f/Megatron.jpg",
-            "https://upload.wikimedia.org/wikipedia/en/7/7f/Megatron.jpg",
-            "https://upload.wikimedia.org/wikipedia/en/8/85/Starscream.jpg",
-            "https://upload.wikimedia.org/wikipedia/en/8/85/Starscream.jpg",
-            "http://img1.wikia.nocookie.net/__cb20060816201257/transformers/images/2/25/Ironhideg1guido.jpg",
-            "http://img1.wikia.nocookie.net/__cb20060816201257/transformers/images/2/25/Ironhideg1guido.jpg",
-            "http://orig06.deviantart.net/0445/f/2007/246/b/f/i_am_soundwave____by_fargnay.jpg",
-            "http://orig06.deviantart.net/0445/f/2007/246/b/f/i_am_soundwave____by_fargnay.jpg",
-            "http://orig02.deviantart.net/1580/f/2009/231/1/d/grimlock_colored_by_stridersyd.jpg",
-            "http://orig02.deviantart.net/1580/f/2009/231/1/d/grimlock_colored_by_stridersyd.jpg",
-          ],
+      "http://img3.wikia.nocookie.net/__cb20140705214625/worldsgreatestheroes/images/8/84/Optimus-Prime.jpg",
+      "https://upload.wikimedia.org/wikipedia/en/7/7f/Megatron.jpg",
+      "https://upload.wikimedia.org/wikipedia/en/7/7f/Megatron.jpg",
+      "https://upload.wikimedia.org/wikipedia/en/8/85/Starscream.jpg",
+      "https://upload.wikimedia.org/wikipedia/en/8/85/Starscream.jpg",
+      "http://img1.wikia.nocookie.net/__cb20060816201257/transformers/images/2/25/Ironhideg1guido.jpg",
+      "http://img1.wikia.nocookie.net/__cb20060816201257/transformers/images/2/25/Ironhideg1guido.jpg",
+      "http://orig06.deviantart.net/0445/f/2007/246/b/f/i_am_soundwave____by_fargnay.jpg",
+      "http://orig06.deviantart.net/0445/f/2007/246/b/f/i_am_soundwave____by_fargnay.jpg",
+      "http://orig02.deviantart.net/1580/f/2009/231/1/d/grimlock_colored_by_stridersyd.jpg",
+      "http://orig02.deviantart.net/1580/f/2009/231/1/d/grimlock_colored_by_stridersyd.jpg",
+    ],
     init: function() {
       game.shuffle();
     },
@@ -41,13 +41,17 @@ $(document).ready(function() {
         $(this).html('<img src =' + $(this).data('cardValue') + '></img>').addClass('selected');
         game.checkMatch();
       });
+      $('#playButton').on('click', function(){
+        location.reload();
+        playSound('http://www.transformersmovie.thetfcog.com/sounds/autobots%20transform%20and%20roll%20out.mp3')
+      });
     },
     //How to check if cards match using data tag
     checkMatch: function() {
       if ($('.selected').length === 2) {
         if ($('.selected').first().data('cardValue') == $('.selected').last().data('cardValue')) {
           $('.selected').each(function() {
-            $(this).each(function(){
+            $(this).each(function() {
               playSound('http://www.hasbro.com/common/audio/transformers/tranforb.wav')
             }).animate({
               opacity: 0
@@ -76,6 +80,6 @@ $(document).ready(function() {
   game.init();
 });
 
-function playSound( url ) {
-  $(".selected").html("<embed src='"+url+"' hidden=true autostart=true loop=false>");
+function playSound(url) {
+  $(".selected").html("<embed src='" + url + "' hidden=true autostart=true loop=false>");
 }
