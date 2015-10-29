@@ -43,7 +43,7 @@ $(document).ready(function() {
       });
       $('#playButton').on('click', function(){
         location.reload();
-        playSound('http://www.transformersmovie.thetfcog.com/sounds/autobots%20transform%20and%20roll%20out.mp3')
+        playSound('http://www.transformersmovie.thetfcog.com/sounds/autobots%20transform%20and%20roll%20out.mp3');
       });
     },
     //How to check if cards match using data tag
