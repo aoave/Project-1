@@ -6,8 +6,20 @@
   <title>Concentration</title>
   <link rel="stylesheet" href="style.css">
 </head>
+<!-- Your HTML has numerous validation errors, make sure to check this:
+      https://validator.w3.org/nu/?doc=http%3A%2F%2Faoave.github.io%2FProject-1%2F
+ -->
+ <!-- e.g. this H1 should be inside the body  -->
 <h1>Transformers: Battle For Cybertron</h1>
 <body>
+   <!-- It'd be nice if you generated / appended the correct number
+        of divs to the body, in your JS file, based on the size of the
+        array. That way, if you added more images, you wouldn't
+        need to update this file. -->
+
+    <!-- regardless of whether you generate these divs in JS
+        or hardcode them like below, it's best to have them
+        grouped together in a container div (or other element like <main>) -->
     <div class="card unmatched"></div>
     <div class="card unmatched"></div>
     <div class="card unmatched"></div>
@@ -21,9 +33,10 @@
     <div class="card unmatched"></div>
     <div class="card unmatched"></div>
 
+  <!-- these two divs are stray (there is no open div to close on the following line) -->
   </div>
   <div>
-<button  id='playButton'>Reset!</button>  
+<button  id='playButton'>Reset!</button>
 
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  // nice use of a game object
   var game = {
     cards: ["http://img3.wikia.nocookie.net/__cb20140705214625/worldsgreatestheroes/images/8/84/Optimus-Prime.jpg",
       "http://img3.wikia.nocookie.net/__cb20140705214625/worldsgreatestheroes/images/8/84/Optimus-Prime.jpg",
@@ -49,8 +50,11 @@ $(document).ready(function() {
     //How to check if cards match using data tag
     checkMatch: function() {
       if ($('.selected').length === 2) {
+        // this method is really long. I'd break some of these sections out into
+        //other methods and call them here for readability.
         if ($('.selected').first().data('cardValue') == $('.selected').last().data('cardValue')) {
           $('.selected').each(function() {
+            // this the use of each necessary twice here?
             $(this).each(function() {
               playSound('http://www.hasbro.com/common/audio/transformers/tranforb.wav')
             }).animate({
@@ -58,6 +62,8 @@ $(document).ready(function() {
             }).removeClass('unmatched');
           });
           // remove selected cards if they do not match
+          // I don't think this comment above reflects what's happening.
+          // This is not if they don't match, this is if they DO match.
           $('.selected').each(function() {
             $(this).removeClass('selected');
           });
